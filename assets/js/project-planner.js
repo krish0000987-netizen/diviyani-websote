@@ -133,17 +133,17 @@ function initProjectPlanner() {
     if (!summaryWrap) return;
 
     summaryWrap.innerHTML = `
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 1.75rem; margin-bottom: 2rem;">
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
         <h4 style="font-family: var(--font-serif); color: var(--gold-light); margin-bottom: 1.25rem; font-size: 1.25rem;">Project Brief Summary</h4>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; font-size: 0.9rem;">
+        <div class="form-row" style="font-size: 0.9rem; row-gap: 1rem;">
           <div><strong style="color: var(--gold-primary);">Client Name:</strong> <span style="color: #fff;">${projectData.name}</span></div>
           <div><strong style="color: var(--gold-primary);">Business:</strong> <span style="color: #fff;">${projectData.business}</span></div>
           <div><strong style="color: var(--gold-primary);">Phone:</strong> <span style="color: #fff;">${projectData.phone}</span></div>
           <div><strong style="color: var(--gold-primary);">Email:</strong> <span style="color: #fff;">${projectData.email}</span></div>
-          <div style="grid-column: span 2;"><strong style="color: var(--gold-primary);">Selected Services:</strong> <span style="color: var(--gold-light);">${projectData.services.join(', ')}</span></div>
+          <div style="grid-column: 1 / -1;"><strong style="color: var(--gold-primary);">Selected Services:</strong> <span style="color: var(--gold-light);">${projectData.services.join(', ')}</span></div>
           <div><strong style="color: var(--gold-primary);">Budget Range:</strong> <span style="color: #fff;">${projectData.budget}</span></div>
           <div><strong style="color: var(--gold-primary);">Estimated Timeline:</strong> <span style="color: #fff;">${projectData.timeline}</span></div>
-          <div style="grid-column: span 2;"><strong style="color: var(--gold-primary);">Project Objective:</strong> <p style="color: var(--text-secondary); margin-top: 4px; line-height: 1.6;">${projectData.description}</p></div>
+          <div style="grid-column: 1 / -1;"><strong style="color: var(--gold-primary);">Project Objective:</strong> <p style="color: var(--text-secondary); margin-top: 4px; line-height: 1.6;">${projectData.description}</p></div>
         </div>
       </div>
     `;
