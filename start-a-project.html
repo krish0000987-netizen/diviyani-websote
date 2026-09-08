@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start A Project — Devyani Creative Studio | Interactive Creative Planner</title>
+  <meta name="description" content="Launch your brand project with Devyani Creative Studio. Complete our 4-step creative onboarding planner for brand identity, content, and digital campaigns.">
+  <meta name="keywords" content="Start A Project, Brand Brief, Hire Creative Studio Patna, Devyani Creative Studio Onboarding">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="You Have The Idea. We'll Help Bring It To Life — Devyani Creative Studio">
+  <meta property="og:description" content="Plan your creative project in 4 simple steps with our interactive brief builder.">
+  <meta property="og:image" content="assets/images/logo-ds.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-ds.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+  <!-- ==================== GLOBAL HEADER ==================== -->
+  <header class="header-main">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Devyani Creative Studio Home">
+        <img src="assets/images/logo-ds.png" alt="Devyani Creative Studio Logo" class="brand-logo-img">
+        <div class="brand-logo-text">
+          <span class="brand-logo-title">Devyani</span>
+          <span class="brand-logo-sub">Creative Studio</span>
+        </div>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="process.html" class="nav-link">Process</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="insights.html" class="nav-link">Insights</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="start-a-project.html" class="btn btn-gold btn-sm header-cta-desktop active">Start a Project</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MOBILE NAVIGATION OVERLAY ==================== -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Studio</a>
+      <a href="services.html" class="mobile-nav-link">Our Services</a>
+      <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
+      <a href="process.html" class="mobile-nav-link">Creative Process</a>
+      <a href="pricing.html" class="mobile-nav-link">Packages & Pricing</a>
+      <a href="insights.html" class="mobile-nav-link">Journal & Insights</a>
+      <a href="founder.html" class="mobile-nav-link">Founder Profile</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+    </div>
+    <div class="mobile-nav-contact">
+      <span class="mobile-nav-phone">Direct Line: +91 9693125731</span>
+      <a href="start-a-project.html" class="btn btn-gold btn-lg" style="width: 100%;">Start a Project</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <img src="assets/images/hero-1.jpg" alt="Start a Project" class="page-hero-bg">
+      <div class="page-hero-overlay"></div>
+      <div class="container page-hero-content reveal">
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a>
+          <span class="breadcrumbs-sep">/</span>
+          <span>Project Onboarding</span>
+        </div>
+        <span class="eyebrow">Creative Commissioning</span>
+        <h1 class="page-hero-title">You Have The Idea.<br><span class="text-gradient-gold">We'll Bring It To Life.</span></h1>
+        <p class="page-hero-desc">
+          Tell us what you're building, what you're trying to achieve, and where you want your brand to go. Complete our 4-step creative brief below.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION: 4-STEP INTERACTIVE PROJECT PLANNER -->
+    <section class="section-padding" style="background: var(--bg-primary);">
+      <div class="container">
+        
+        <div class="project-planner-wrap">
+          
+          <!-- Step Progress Indicator -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <span style="font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold-primary);">
+              Phase <span id="currentStepNum">01</span> / 04
+            </span>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Confidential & Direct</span>
+          </div>
+
+          <div class="planner-progress-bar">
+            <div class="planner-progress-step is-active"></div>
+            <div class="planner-progress-step"></div>
+            <div class="planner-progress-step"></div>
+            <div class="planner-progress-step"></div>
+          </div>
+
+          <form id="projectPlannerForm">
+            <div id="plannerFormContent">
+              
+              <!-- ================= STEP 1: ABOUT YOU ================= -->
+              <div class="planner-step-pane is-active" data-step="1">
+                <span class="eyebrow">Step 01</span>
+                <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem;">
+                  About You & Your Business
+                </h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="clientName">Your Full Name *</label>
+                    <input type="text" id="clientName" class="form-input" placeholder="e.g. Anandita Verma" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="clientBusiness">Business / Company Name</label>
+                    <input type="text" id="clientBusiness" class="form-input" placeholder="e.g. Verma Heritage Hospitality">
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="clientPhone">Phone Number *</label>
+                    <input type="tel" id="clientPhone" class="form-input" placeholder="+91 9693125731" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="clientEmail">Email Address</label>
+                    <input type="email" id="clientEmail" class="form-input" placeholder="anandita@example.com">
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+                  <button type="button" class="btn btn-gold btn-next-step">
+                    <span>Next: Select Services</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- ================= STEP 2: WHAT DO YOU NEED? ================= -->
+              <div class="planner-step-pane" data-step="2">
+                <span class="eyebrow">Step 02</span>
+                <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+                  What Do You Need?
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem;">Select one or multiple creative capabilities that align with your brief.</p>
+
+                <div class="service-options-grid">
+                  <div class="service-option-card" data-service="Brand Identity">
+                    <div style="font-size: 1.5rem;">✦</div>
+                    <div class="service-option-title">Brand Identity</div>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Logo, Typography, Palette</span>
+                  </div>
+
+                  <div class="service-option-card" data-service="Social Media Creative">
+                    <div style="font-size: 1.5rem;">◈</div>
+                    <div class="service-option-title">Social Media Creative</div>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Grid, Reels, Carousels</span>
+                  </div>
+
+                  <div class="service-option-card" data-service="Content Creation">
+                    <div style="font-size: 1.5rem;">❖</div>
+                    <div class="service-option-title">Content Creation</div>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Commercial Photography</span>
+                  </div>
+
+                  <div class="service-option-card" data-service="Graphic Design">
+                    <div style="font-size: 1.5rem;">◆</div>
+                    <div class="service-option-title">Graphic Design</div>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Packaging, Print, Posters</span>
+                  </div>
+
+                  <div class="service-option-card" data-service="Digital Creative">
+                    <div style="font-size: 1.5rem;">◉</div>
+                    <div class="service-option-title">Digital Creative</div>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Performance Ads & Web UI</span>
+                  </div>
+
+                  <div class="service-option-card" data-service="Video & Motion">
+                    <div style="font-size: 1.5rem;">▶</div>
+                    <div class="service-option-title">Video & Motion</div>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Motion Graphics & Reels</span>
+                  </div>
+
+                  <div class="service-option-card" data-service="Full 360 Campaign">
+                    <div style="font-size: 1.5rem;">★</div>
+                    <div class="service-option-title">Full 360° Campaign</div>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Multi-Channel Launch</span>
+                  </div>
+
+                  <div class="service-option-card" data-service="AI-Assisted Ideation">
+                    <div style="font-size: 1.5rem;">⚙</div>
+                    <div class="service-option-title">AI Ideation</div>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Rapid Concept Testing</span>
+                  </div>
+
+                  <div class="service-option-card" data-service="Bespoke Creative">
+                    <div style="font-size: 1.5rem;">✦</div>
+                    <div class="service-option-title">Other / Custom Scope</div>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Tailored Direction</span>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; margin-top: 2.5rem;">
+                  <button type="button" class="btn btn-outline btn-prev-step">
+                    <span>Back</span>
+                  </button>
+                  <button type="button" class="btn btn-gold btn-next-step">
+                    <span>Next: Project Details</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- ================= STEP 3: PROJECT DETAILS ================= -->
+              <div class="planner-step-pane" data-step="3">
+                <span class="eyebrow">Step 03</span>
+                <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem;">
+                  Scope, Timeline & Budget
+                </h3>
+
+                <div class="form-group">
+                  <label class="form-label" for="clientDescription">Project Objective & Brief</label>
+                  <textarea id="clientDescription" class="form-textarea" placeholder="Briefly describe what your business does, what problems you want to solve, and your creative vision..."></textarea>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="clientTimeline">Target Timeline</label>
+                    <select id="clientTimeline" class="form-select">
+                      <option value="Urgent (1-2 Weeks)">Urgent (1–2 Weeks)</option>
+                      <option value="Within 3-4 Weeks" selected>Standard (3–4 Weeks)</option>
+                      <option value="1-2 Months">Comprehensive (1–2 Months)</option>
+                      <option value="Ongoing Retainer">Ongoing Monthly Retainer</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="clientBudget">Estimated Budget Range</label>
+                    <select id="clientBudget" class="form-select">
+                      <option value="₹25,000 – ₹50,000">₹25,000 – ₹50,000 (Starter)</option>
+                      <option value="₹50,000 – ₹1,50,000" selected>₹50,000 – ₹1,50,000 (Growth)</option>
+                      <option value="₹1,50,000 – ₹3,00,000">₹1,50,000 – ₹3,00,000 (Premium)</option>
+                      <option value="₹3,00,000+">₹3,00,000+ (Comprehensive 360°)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="clientAudience">Target Audience / Market</label>
+                  <input type="text" id="clientAudience" class="form-input" placeholder="e.g. Modern consumers, B2B executives, Patna / National market">
+                </div>
+
+                <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                  <button type="button" class="btn btn-outline btn-prev-step">
+                    <span>Back</span>
+                  </button>
+                  <button type="button" class="btn btn-gold btn-next-step">
+                    <span>Review & Confirm</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- ================= STEP 4: REVIEW & SUBMIT ================= -->
+              <div class="planner-step-pane" data-step="4">
+                <span class="eyebrow">Step 04 / Final Verification</span>
+                <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem;">
+                  Review Your Creative Brief
+                </h3>
+
+                <!-- Live Generated Summary -->
+                <div id="plannerSummaryWrap"></div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem;">
+                  <button type="button" class="btn btn-outline btn-prev-step">
+                    <span>Back & Edit</span>
+                  </button>
+                  <button type="submit" class="btn btn-gold btn-lg">
+                    <span>Start The Conversation</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- SUCCESS STATE PANE -->
+            <div id="plannerSuccessPane" style="display: none; text-align: center; padding: 2rem 0;">
+              <div style="width: 72px; height: 72px; background: rgba(212,175,55,0.15); border: 2px solid var(--gold-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--gold-light); font-size: 2rem;">
+                ✓
+              </div>
+              <span class="eyebrow eyebrow-center">Submission Successful</span>
+              <h2 style="font-family: var(--font-serif); font-size: 2.25rem; color: var(--text-primary); margin-bottom: 1rem;">
+                Thank You.<br><span class="text-gradient-gold">Your Project Journey Starts Here.</span>
+              </h2>
+              <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8;">
+                Our creative director has received your project brief and will connect within 4 business hours with initial conceptual observations and proposal details.
+              </p>
+              
+              <div class="btn-group" style="justify-content: center;">
+                <a href="#" id="waDirectSubmitBtn" target="_blank" class="btn btn-whatsapp btn-lg">
+                  Send Brief Directly on WhatsApp
+                </a>
+                <a href="index.html" class="btn btn-outline btn-lg">
+                  Back to Homepage
+                </a>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FLOATING WHATSAPP CTA ==================== -->
+  <a href="https://wa.me/919693125731" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <div style="position: relative;">
+      <svg class="whatsapp-icon-pulse" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2M12.05 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.25 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.05 20.15M16.57 14.36C16.32 14.23 15.1 13.63 14.88 13.55C14.65 13.47 14.49 13.43 14.32 13.68C14.16 13.93 13.69 14.47 13.54 14.64C13.4 14.8 13.25 14.82 13 14.7C12.75 14.57 11.7 14.23 10.45 13.12C9.48 12.25 8.83 11.18 8.7 10.97C8.58 10.77 8.69 10.65 8.81 10.53C8.92 10.42 9.06 10.25 9.18 10.11C9.31 9.97 9.47 9.4 9.41 9.27C9.35 9.15 8.86 7.95 8.66 7.46C8.46 6.98 8.26 7.04 8.11 7.04C7.97 7.03 7.8 7.03 7.64 7.03C7.47 7.03 7.2 7.1 6.97 7.34C6.75 7.59 6.11 8.19 6.11 9.41C6.11 10.63 7 11.81 7.12 11.97C7.25 12.14 8.87 14.63 11.35 15.7C11.94 15.96 12.4 16.11 12.76 16.23C13.51 16.46 14.19 16.43 14.73 16.35C15.33 16.26 16.57 15.6 16.83 14.88C17.09 14.15 17.09 13.53 17.01 13.4C16.93 13.28 16.81 13.21 16.57 13.08Z"/></svg>
+      <div class="whatsapp-badge"></div>
+    </div>
+    <span>Chat on WhatsApp</span>
+  </a>
+
+  <!-- ==================== MOBILE BOTTOM QUICK BAR ==================== -->
+  <div class="mobile-quick-bar">
+    <a href="tel:+919693125731" class="mobile-quick-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Call</span>
+    </a>
+    <a href="https://wa.me/919693125731" target="_blank" class="mobile-quick-btn" style="color: #25D366;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="start-a-project.html" class="mobile-quick-btn gold-quick">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span>Brief Us</span>
+    </a>
+  </div>
+
+  <!-- ==================== GLOBAL FOOTER ==================== -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col-brand">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/images/logo-ds.png" alt="Devyani Creative Studio Logo" class="brand-logo-img">
+            <div class="brand-logo-text">
+              <span class="brand-logo-title">Devyani</span>
+              <span class="brand-logo-sub">Creative Studio</span>
+            </div>
+          </a>
+          <p class="footer-tagline">"Ideas That Look Good. Strategy That Delivers."</p>
+          <p class="footer-desc">
+            Creative solutions for ambitious brands ready to be seen, remembered, and chosen. Patna • Bihar • Worldwide.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+            <li><a href="process.html" class="footer-link">Our Process</a></li>
+            <li><a href="pricing.html" class="footer-link">Packages</a></li>
+            <li><a href="insights.html" class="footer-link">Insights</a></li>
+            <li><a href="founder.html" class="footer-link">Founder Profile</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Capabilities</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#brand-identity" class="footer-link">Brand Identity</a></li>
+            <li><a href="services.html#social-media" class="footer-link">Social Media Creative</a></li>
+            <li><a href="services.html#content-creation" class="footer-link">Content Creation</a></li>
+            <li><a href="services.html#graphic-design" class="footer-link">Graphic Design</a></li>
+            <li><a href="services.html#digital-creative" class="footer-link">Digital Creative</a></li>
+            <li><a href="services.html#video-motion" class="footer-link">Video & Motion</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col-contact">
+          <h4 class="footer-col-title">Studio Location</h4>
+          <div class="footer-contact-item">
+            <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <strong>Devyani Creative Studio</strong><br>
+              Das Lane, Khadamkua,<br>
+              Patna, Bihar, India
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <a href="tel:+919693125731" style="color: var(--gold-light);">+91 9693125731</a>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <a href="start-a-project.html" class="btn btn-gold btn-sm" style="width: 100%;">Start a Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Devyani Creative Studio. All Rights Reserved.</div>
+        <div class="footer-legal-links">
+          <a href="about.html">Studio Philosophy</a>
+          <a href="contact.html">Privacy & Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/project-planner.js"></script>
+</body>
+</html>

@@ -1,0 +1,1229 @@
+/* ==========================================================================
+   DEVYANI CREATIVE STUDIO — COMPONENTS DESIGN SYSTEM
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Hero Slideshow (Homepage)
+   ========================================================================== */
+.hero-slider-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 720px;
+  overflow: hidden;
+  background-color: var(--bg-darkest);
+  display: flex;
+  align-items: center;
+}
+
+.hero-slider-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
+  z-index: 1;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.hero-slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1);
+  transition: transform 7s ease-out;
+  filter: brightness(0.7) contrast(110%);
+}
+
+.hero-slide.is-active .hero-slide-bg {
+  transform: scale(1.08);
+}
+
+.hero-slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+              linear-gradient(180deg, rgba(5, 7, 11, 0.5) 0%, rgba(8, 10, 16, 0.9) 95%);
+  z-index: 2;
+}
+
+.hero-content-wrap {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding-top: 5rem;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.hero-slide .hero-eyebrow,
+.hero-slide .hero-headline,
+.hero-slide .hero-subhead,
+.hero-slide .hero-actions {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-slide.is-active .hero-eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.hero-slide.is-active .hero-headline {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.hero-slide.is-active .hero-subhead {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.45s;
+}
+
+.hero-slide.is-active .hero-actions {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+.hero-headline {
+  font-size: clamp(2.75rem, 6.2vw, 5.5rem);
+  font-family: var(--font-serif);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.hero-subhead {
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 680px;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+/* Hero Controls & Progress Indicator */
+.hero-controls {
+  position: absolute;
+  bottom: 35px;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+.hero-controls-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.hero-indicators {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-indicator-btn {
+  width: 48px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.hero-indicator-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--gold-gradient);
+}
+
+.hero-indicator-btn.is-active {
+  width: 72px;
+}
+
+.hero-indicator-btn.is-active::after {
+  width: 100%;
+  transition: width 3s linear;
+}
+
+.hero-slide-counter {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold-primary);
+}
+
+.hero-scroll-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+.scroll-line-anim {
+  width: 24px;
+  height: 1px;
+  background: var(--gold-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line-anim::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  animation: scrollLine 2s infinite ease-in-out;
+}
+
+@keyframes scrollLine {
+  0% { left: -100%; }
+  50% { left: 0; }
+  100% { left: 100%; }
+}
+
+/* ==========================================================================
+   2. Trust / Metrics / Cards
+   ========================================================================== */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+.stat-card {
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border-card);
+  padding: 2.25rem 2rem;
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-number {
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-family: var(--font-serif);
+  font-weight: 800;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.stat-label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   3. Service Cards & Suite
+   ========================================================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  border-color: var(--gold-border-bright);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), var(--gold-glow);
+}
+
+.service-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: brightness(0.85) contrast(105%);
+}
+
+.service-card:hover .service-img {
+  transform: scale(1.08);
+}
+
+.service-num {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(8, 10, 16, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-primary);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  z-index: 2;
+}
+
+.service-body {
+  padding: 2.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-title {
+  font-size: 1.35rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.service-summary {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.service-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.75rem;
+}
+
+.service-pill {
+  font-size: 0.72rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+}
+
+.service-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold-primary);
+  transition: all var(--transition-fast);
+}
+
+.service-cta-link svg {
+  transition: transform var(--transition-fast);
+}
+
+.service-card:hover .service-cta-link {
+  color: var(--gold-light);
+}
+
+.service-card:hover .service-cta-link svg {
+  transform: translateX(6px);
+}
+
+/* ==========================================================================
+   4. Portfolio Masonry & Filters
+   ========================================================================== */
+.portfolio-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 3.5rem;
+}
+
+.filter-btn {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--gold-border);
+  color: var(--gold-light);
+}
+
+.filter-btn.is-active {
+  background: var(--gold-gradient);
+  color: var(--bg-darkest);
+  border-color: var(--gold-light);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.portfolio-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.portfolio-card.is-hidden {
+  display: none;
+}
+
+.portfolio-card:hover {
+  border-color: var(--gold-border-bright);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), var(--gold-glow);
+}
+
+.portfolio-thumb-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.portfolio-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover .portfolio-thumb {
+  transform: scale(1.08);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(5, 7, 11, 0.2) 0%, rgba(5, 7, 11, 0.92) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  transition: all var(--transition-normal);
+}
+
+.portfolio-cat {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold-primary);
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-title {
+  font-size: 1.35rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.portfolio-deliverables {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.portfolio-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold-light);
+  opacity: 0.9;
+  transition: all var(--transition-fast);
+}
+
+.portfolio-card:hover .portfolio-view-btn {
+  transform: translateX(4px);
+  color: var(--gold-bright);
+}
+
+/* ==========================================================================
+   5. Case Study Modal
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 7, 11, 0.94);
+  backdrop-filter: blur(25px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  padding: 2rem;
+}
+
+.modal-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-xl);
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), var(--gold-glow);
+  transform: scale(0.95);
+  transition: transform var(--transition-normal);
+}
+
+.modal-backdrop.is-active .modal-card {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(8, 10, 16, 0.8);
+  border: 1px solid var(--gold-border);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: var(--gold-primary);
+  color: var(--bg-darkest);
+  transform: rotate(90deg);
+}
+
+.modal-hero-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 3rem;
+}
+
+.modal-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal-project-title {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-family: var(--font-serif);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.modal-grid-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 2.5rem;
+}
+
+.modal-detail-item h5 {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold-primary);
+  margin-bottom: 0.35rem;
+}
+
+.modal-detail-item p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.modal-section-block {
+  margin-bottom: 2.25rem;
+}
+
+.modal-section-block h4 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--gold-light);
+  margin-bottom: 0.85rem;
+}
+
+.modal-section-block p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   6. 6-Stage Process Timeline
+   ========================================================================== */
+.process-timeline {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.process-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-primary) 50%, rgba(212, 175, 55, 0.2) 100%);
+  transform: translateX(-50%);
+}
+
+.process-step-item {
+  position: relative;
+  display: flex;
+  margin-bottom: 4.5rem;
+  align-items: center;
+}
+
+.process-step-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.process-step-card {
+  width: 46%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.process-step-card:hover {
+  border-color: var(--gold-border-bright);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), var(--gold-glow);
+  transform: translateY(-4px);
+}
+
+.process-step-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-darkest);
+  border: 2px solid var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  box-shadow: var(--gold-glow);
+  z-index: 5;
+}
+
+.process-step-num {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--gold-primary);
+  margin-bottom: 0.5rem;
+}
+
+.process-step-title {
+  font-size: 1.4rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+}
+
+.process-step-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* ==========================================================================
+   7. Pricing / Packages
+   ========================================================================== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+.pricing-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.pricing-card.is-featured {
+  background: linear-gradient(180deg, rgba(20, 28, 42, 0.9) 0%, rgba(13, 18, 27, 0.95) 100%);
+  border-color: var(--gold-primary);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), var(--gold-glow);
+  transform: translateY(-8px);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold-gradient);
+  color: var(--bg-darkest);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.pricing-tier-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.75rem;
+}
+
+.pricing-tagline {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  min-height: 48px;
+}
+
+.pricing-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex: 1;
+}
+
+.pricing-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.pricing-check-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--gold-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   8. Insights / Editorial Journal
+   ========================================================================== */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.insight-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.insight-card:hover {
+  border-color: var(--gold-border-bright);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), var(--gold-glow);
+}
+
+.insight-thumb-wrap {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.insight-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.insight-card:hover .insight-thumb {
+  transform: scale(1.08);
+}
+
+.insight-body {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.insight-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold-primary);
+  margin-bottom: 0.75rem;
+}
+
+.insight-title {
+  font-size: 1.25rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+  line-height: 1.3;
+}
+
+.insight-excerpt {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+/* ==========================================================================
+   9. Founder Profile Layout
+   ========================================================================== */
+.founder-profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.founder-img-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), var(--gold-glow);
+}
+
+.founder-img-frame::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: calc(var(--radius-xl) - 10px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.founder-portrait-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.founder-quote-banner {
+  padding: 2.5rem;
+  background: var(--bg-surface);
+  border-left: 3px solid var(--gold-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: 2.5rem 0;
+}
+
+.founder-quote-text {
+  font-family: var(--font-editorial);
+  font-size: 1.35rem;
+  color: var(--gold-light);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   10. Interactive Multi-Step Project Planner
+   ========================================================================== */
+.project-planner-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), var(--gold-glow);
+}
+
+.planner-progress-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 3rem;
+}
+
+.planner-progress-step {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.planner-progress-step.is-active,
+.planner-progress-step.is-complete {
+  background: var(--gold-gradient);
+}
+
+.planner-step-pane {
+  display: none;
+}
+
+.planner-step-pane.is-active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-light);
+  margin-bottom: 0.65rem;
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(8, 10, 16, 0.75);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  background: rgba(13, 18, 27, 0.95);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Service Selection Grid Pills */
+.service-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.service-option-card {
+  padding: 1.25rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.service-option-card:hover {
+  border-color: var(--gold-border);
+  background: rgba(212, 175, 55, 0.06);
+}
+
+.service-option-card.is-selected {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+}
+
+.service-option-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   11. Contact Details & Maps
+   ========================================================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+}
+
+.contact-info-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.map-embed-frame {
+  width: 100%;
+  height: 280px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  margin-top: 2rem;
+}
+
+/* ==========================================================================
+   Responsive Component Rules
+   ========================================================================== */
+@media (max-width: 1199px) {
+  .services-grid,
+  .portfolio-grid,
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .founder-profile-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .process-timeline::before {
+    left: 24px;
+  }
+  .process-step-item {
+    flex-direction: column !important;
+    align-items: flex-start;
+    padding-left: 60px;
+  }
+  .process-step-card {
+    width: 100%;
+  }
+  .process-step-node {
+    left: 24px;
+    top: 30px;
+    transform: translate(-50%, 0);
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-slider-section {
+    min-height: 600px;
+  }
+  .hero-controls-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .services-grid,
+  .portfolio-grid,
+  .insights-grid,
+  .pricing-grid,
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-planner-wrap,
+  .contact-info-card,
+  .modal-body {
+    padding: 1.75rem;
+  }
+  .service-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
